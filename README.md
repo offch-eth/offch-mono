@@ -47,6 +47,5 @@ Execute test files from the `scripts` directory in the order:
 
 ## TODO:
 
-- [ ] One integration test for the whole process
 - [ ] Remove hardcoded values from the contracts
 - [ ] Get snapshot block number from the last verified block instead of user input

@@ -1,6 +1,10 @@
 package scripts
 
 import (
+	"embed"
+	"os"
+	"strings"
+
 	"github.com/caarlos0/env/v10"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/joho/godotenv"
@@ -33,11 +37,33 @@ type Config struct {
 
 var Cfg Config
 
+var (
+	//go:embed .env
+	envFile embed.FS
+)
+
 func init() {
-	// Load the .env file
-	err := godotenv.Load()
+	f, err := envFile.Open(".env")
 	if err != nil {
 		panic(err)
+	}
+
+	envMap, err := godotenv.Parse(f)
+	if err != nil {
+		panic(err)
+	}
+
+	currentEnv := map[string]bool{}
+	rawEnv := os.Environ()
+	for _, rawEnvLine := range rawEnv {
+		key := strings.Split(rawEnvLine, "=")[0]
+		currentEnv[key] = true
+	}
+
+	for key, value := range envMap {
+		if !currentEnv[key] {
+			_ = os.Setenv(key, value)
+		}
 	}
 
 	// Load the environment variables into the config struct
