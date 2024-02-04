@@ -1,0 +1,193 @@
+[
+  {
+    "inputs":
+    [
+      {
+        "internalType": "uint64",
+        "name": "srcChainId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "app",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "signal",
+        "type": "bytes32"
+      },
+      {
+        "components":
+        [
+          {
+            "internalType": "address",
+            "name": "crossChainSync",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "height",
+            "type": "uint64"
+          },
+          {
+            "internalType": "bytes",
+            "name": "storageProof",
+            "type": "bytes"
+          },
+          {
+            "components":
+            [
+              {
+                "internalType": "address",
+                "name": "signalRootRelay",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "signalRoot",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes",
+                "name": "storageProof",
+                "type": "bytes"
+              }
+            ],
+            "internalType": "struct ISignalService.Hop[]",
+            "name": "hops",
+            "type": "tuple[]"
+          }
+        ],
+        "internalType": "struct ISignalService.Proof",
+        "name": "proof",
+        "type": "tuple"
+      }
+    ],
+    "name": "_foo",
+    "outputs":
+    [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs":
+    [
+      {
+        "internalType": "uint64",
+        "name": "chainId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "app",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "signal",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getSignalSlot",
+    "outputs":
+    [
+      {
+        "internalType": "bytes32",
+        "name": "signalSlot",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs":
+    [
+      {
+        "internalType": "address",
+        "name": "app",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "signal",
+        "type": "bytes32"
+      }
+    ],
+    "name": "isSignalSent",
+    "outputs":
+    [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs":
+    [
+      {
+        "internalType": "uint64",
+        "name": "srcChainId",
+        "type": "uint64"
+      },
+      {
+        "internalType": "address",
+        "name": "app",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "signal",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "proof",
+        "type": "bytes"
+      }
+    ],
+    "name": "proveSignalReceived",
+    "outputs":
+    [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs":
+    [
+      {
+        "internalType": "bytes32",
+        "name": "signal",
+        "type": "bytes32"
+      }
+    ],
+    "name": "sendSignal",
+    "outputs":
+    [
+      {
+        "internalType": "bytes32",
+        "name": "storageSlot",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

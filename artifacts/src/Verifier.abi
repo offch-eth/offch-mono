@@ -1,0 +1,250 @@
+[
+  {
+    "anonymous": false,
+    "inputs":
+    [
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "blockHashValid",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "accountProofValid",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "storageProofValid",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "l1BlockHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ProofValidity",
+    "type": "event"
+  },
+  {
+    "inputs":
+    [
+      {
+        "internalType": "bytes",
+        "name": "key",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "value",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes",
+        "name": "proof",
+        "type": "bytes"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "root",
+        "type": "bytes32"
+      }
+    ],
+    "name": "verifyProof",
+    "outputs":
+    [
+      {
+        "internalType": "bool",
+        "name": "valid",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs":
+    [
+      {
+        "components":
+        [
+          {
+            "internalType": "bytes",
+            "name": "accountAddress",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes",
+            "name": "accountState",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes",
+            "name": "accountProof",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "stateRoot",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes",
+            "name": "storageKey",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes",
+            "name": "tokenAmount",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes",
+            "name": "storageProof",
+            "type": "bytes"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "storageRootHash",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct ProofsToVerify",
+        "name": "content",
+        "type": "tuple"
+      },
+      {
+        "components":
+        [
+          {
+            "internalType": "uint64",
+            "name": "blockNumber",
+            "type": "uint64"
+          },
+          {
+            "components":
+            [
+              {
+                "internalType": "bytes32",
+                "name": "parentHash",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "ommersHash",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "address",
+                "name": "proposer",
+                "type": "address"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "stateRoot",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "transactionsRoot",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "receiptsRoot",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "bytes32[8]",
+                "name": "logsBloom",
+                "type": "bytes32[8]"
+              },
+              {
+                "internalType": "uint256",
+                "name": "difficulty",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint128",
+                "name": "height",
+                "type": "uint128"
+              },
+              {
+                "internalType": "uint64",
+                "name": "gasLimit",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "gasUsed",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint64",
+                "name": "timestamp",
+                "type": "uint64"
+              },
+              {
+                "internalType": "bytes",
+                "name": "extraData",
+                "type": "bytes"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "mixHash",
+                "type": "bytes32"
+              },
+              {
+                "internalType": "uint64",
+                "name": "nonce",
+                "type": "uint64"
+              },
+              {
+                "internalType": "uint256",
+                "name": "baseFeePerGas",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bytes32",
+                "name": "withdrawalsRoot",
+                "type": "bytes32"
+              }
+            ],
+            "internalType": "struct BlockHeader",
+            "name": "blockHeader",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct BlockHeaderToRebuild",
+        "name": "blockHeader",
+        "type": "tuple"
+      }
+    ],
+    "name": "verifyProofWithBlockHash",
+    "outputs":
+    [
+      {
+        "internalType": "bool",
+        "name": "blockHashValid",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "accountProofValid",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "storageProofValid",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
